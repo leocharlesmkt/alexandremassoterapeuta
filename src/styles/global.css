@@ -2305,9 +2305,15 @@ h3 {
   }
 
   .hero-image img {
-    object-position: center 12%;
+    object-position: center 24%;
   }
 
+}
+
+@media (max-width: 719px) {
+  .top-bar {
+    display: none;
+  }
 }
 
 @media (min-width: 720px) {

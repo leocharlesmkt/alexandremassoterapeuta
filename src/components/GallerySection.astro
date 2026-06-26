@@ -2,24 +2,24 @@
 const whatsappUrl = "https://wa.me/5519999803939?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20atendimento.";
 
 const photos = [
-  ["Atendimento de massagem de Alexandre", "/images/alexandre-galeria-atendimento.webp"],
-  ["Ambiente privativo com tatame para atendimento", "/images/alexandre-ambiente-tatame-ia-1.webp"],
-  ["Alexandre no espaço de atendimento", "/images/alexandre-galeria-espaco-1.webp"],
-  ["Banheira e espaço de banho do ambiente", "/images/alexandre-ambiente-banheira-ia.webp"],
-  ["Alexandre Massoterapeuta em ambiente reservado", "/images/alexandre-galeria-retrato-noturno.webp"],
-  ["Sala de atendimento com tatame e iluminação discreta", "/images/alexandre-ambiente-tatame-ia-2.webp"],
-  ["Alexandre no espaço de atendimento em Campinas", "/images/alexandre-galeria-espaco-2.webp"],
-  ["Alexandre Massoterapeuta no ambiente de atendimento", "/images/alexandre-galeria-espaco-3.webp"]
+  ["Atendimento de massagem de Alexandre", "/images/alexandre-galeria-atendimento.webp", "/images/alexandre-galeria-atendimento-2x.webp"],
+  ["Ambiente privativo com tatame para atendimento", "/images/alexandre-ambiente-tatame-ia-1.webp", "/images/alexandre-ambiente-tatame-ia-1-2x.webp"],
+  ["Alexandre no espaço de atendimento", "/images/alexandre-galeria-espaco-1.webp", "/images/alexandre-galeria-espaco-1-2x.webp"],
+  ["Banheira e espaço de banho do ambiente", "/images/alexandre-ambiente-banheira-ia.webp", "/images/alexandre-ambiente-banheira-ia-2x.webp"],
+  ["Alexandre Massoterapeuta em ambiente reservado", "/images/alexandre-galeria-retrato-noturno.webp", "/images/alexandre-galeria-retrato-noturno-2x.webp"],
+  ["Sala de atendimento com tatame e iluminação discreta", "/images/alexandre-ambiente-tatame-ia-2.webp", "/images/alexandre-ambiente-tatame-ia-2-2x.webp"],
+  ["Alexandre no espaço de atendimento em Campinas", "/images/alexandre-galeria-espaco-2.webp", "/images/alexandre-galeria-espaco-2-2x.webp"],
+  ["Alexandre Massoterapeuta no ambiente de atendimento", "/images/alexandre-galeria-espaco-3.webp", "/images/alexandre-galeria-espaco-3-2x.webp"]
 ];
 ---
 
 <section class="gallery-section" aria-labelledby="galeria-title">
   <h2 id="galeria-title" class="sr-only">Galeria de Alexandre Massoterapeuta</h2>
   <div class="gallery-grid">
-    {photos.map(([label, src]) => (
+    {photos.map(([label, src, src2x]) => (
       <figure>
         <a href={src} class="gallery-link" aria-label={`Abrir foto: ${label}`} data-lightbox>
-          <img src={src} width="564" height="720" alt={label} loading="lazy" decoding="async" />
+          <img src={src} srcset={`${src} 1x, ${src2x} 2x`} width="564" height="720" alt={label} loading="lazy" decoding="async" />
         </a>
       </figure>
     ))}
