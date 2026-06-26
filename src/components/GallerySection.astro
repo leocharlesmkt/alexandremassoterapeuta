@@ -1,0 +1,69 @@
+---
+const whatsappUrl = "https://wa.me/5519999803939?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20atendimento.";
+
+const photos = [
+  ["Atendimento de massagem de Alexandre", "/images/alexandre-galeria-atendimento.webp"],
+  ["Alexandre no espaço de atendimento", "/images/alexandre-galeria-espaco-1.webp"],
+  ["Alexandre Massoterapeuta em ambiente reservado", "/images/alexandre-galeria-retrato-noturno.webp"],
+  ["Alexandre no espaço de atendimento em Campinas", "/images/alexandre-galeria-espaco-2.webp"],
+  ["Alexandre Massoterapeuta no ambiente de atendimento", "/images/alexandre-galeria-espaco-3.webp"]
+];
+---
+
+<section class="gallery-section" aria-labelledby="galeria-title">
+  <h2 id="galeria-title" class="sr-only">Galeria de Alexandre Massoterapeuta</h2>
+  <div class="gallery-grid">
+    {photos.map(([label, src]) => (
+      <figure>
+        <a href={src} class="gallery-link" aria-label={`Abrir foto: ${label}`} data-lightbox>
+          <img src={src} width="564" height="720" alt={label} loading="lazy" decoding="async" />
+        </a>
+      </figure>
+    ))}
+  </div>
+  <div class="container">
+    <div class="center-action">
+      <a class="btn" href={whatsappUrl} target="_blank" rel="noopener">Agendar sua massagem agora</a>
+    </div>
+  </div>
+</section>
+
+<div class="image-lightbox" data-lightbox-modal hidden>
+  <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="Fechar imagem">×</button>
+  <img src="" alt="" data-lightbox-image />
+</div>
+
+<script>
+  const lightbox = document.querySelector("[data-lightbox-modal]");
+  const lightboxImage = document.querySelector("[data-lightbox-image]") as HTMLImageElement | null;
+  const closeButton = document.querySelector("[data-lightbox-close]");
+
+  const closeLightbox = () => {
+    lightbox?.setAttribute("hidden", "");
+    document.body.style.overflow = "";
+    if (lightboxImage) {
+      lightboxImage.removeAttribute("src");
+      lightboxImage.alt = "";
+    }
+  };
+
+  document.querySelectorAll("[data-lightbox]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const target = event.currentTarget as HTMLAnchorElement;
+      if (!lightbox || !lightboxImage) return;
+      lightboxImage.src = target.href;
+      lightboxImage.alt = target.querySelector("img")?.getAttribute("alt") ?? "Foto ampliada";
+      lightbox.removeAttribute("hidden");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  closeButton?.addEventListener("click", closeLightbox);
+  lightbox?.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeLightbox();
+  });
+</script>

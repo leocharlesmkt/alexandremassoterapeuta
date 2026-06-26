@@ -1,0 +1,82 @@
+---
+const items = [
+  {
+    icon: "shield",
+    title: "Privacidade desde a chegada",
+    text: "Você chega com horário marcado, sem portaria e sem exposição. O endereço é enviado somente após a confirmação."
+  },
+  {
+    icon: "star",
+    title: "Atendimento só para você",
+    text: "Cada horário é individual. Você tem o ambiente reservado e o tempo necessário para aproveitar seu momento com tranquilidade."
+  },
+  {
+    icon: "clinic",
+    title: "Espaço próprio e climatizado",
+    text: "O ambiente conta com maca e tatame, preparado para oferecer conforto do início ao fim do atendimento."
+  },
+  {
+    icon: "heart",
+    title: "Conversa antes de começar",
+    text: "Você explica o que procura e tudo é alinhado com respeito, discrição e consentimento antes do atendimento."
+  }
+];
+---
+
+<section class="section dark-section" id="diferenciais" aria-labelledby="differentials-title">
+  <div class="container differentials-layout">
+    <div class="differentials-copy">
+      <p class="eyebrow eyebrow-dark">Nossos diferenciais</p>
+      <h2 id="differentials-title">O que torna seu atendimento diferente</h2>
+      <p class="differentials-intro">
+        Mais do que uma massagem, você encontra um espaço pensado para sair da rotina sem abrir mão de conforto, respeito e discrição.
+      </p>
+
+      <div class="differential-list">
+        {items.map((item) => (
+          <article>
+            <span class="differential-icon" aria-hidden="true">
+              {item.icon === "shield" && (
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3 20 6v5c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6l8-3Z"></path>
+                  <path d="m9 12 2 2 4-5"></path>
+                </svg>
+              )}
+              {item.icon === "star" && (
+                <svg viewBox="0 0 24 24">
+                  <path d="m12 3 2.2 5.2L20 10l-4.4 3.8.4 5.8-4-3-4 3 .4-5.8L4 10l5.8-1.8L12 3Z"></path>
+                </svg>
+              )}
+              {item.icon === "clinic" && (
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 21V5h14v16M3 21h18M9 9h6M12 6v6M8 21v-5h8v5"></path>
+                </svg>
+              )}
+              {item.icon === "heart" && (
+                <svg viewBox="0 0 24 24">
+                  <path d="M20.8 5.8a5 5 0 0 0-7.1 0L12 7.5l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 21l8.8-8.1a5 5 0 0 0 0-7.1Z"></path>
+                </svg>
+              )}
+            </span>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <figure class="professional-card">
+      <div class="professional-orbit" aria-hidden="true"></div>
+      <img
+        src="/images/alexandre-diferenciais.webp"
+        width="564"
+        height="720"
+        alt="Alexandre realizando atendimento de massagem"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TopBar from "../components/TopBar.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import ServicesSection from "../components/ServicesSection.astro";
+import AboutSection from "../components/AboutSection.astro";
+import GallerySection from "../components/GallerySection.astro";
+import DifferentialsSection from "../components/DifferentialsSection.astro";
+import TestimonialsSection from "../components/TestimonialsSection.astro";
+import BlogSection from "../components/BlogSection.astro";
+import LocationSection from "../components/LocationSection.astro";
+import PopularServicesSection from "../components/PopularServicesSection.astro";
+import Footer from "../components/Footer.astro";
+import { siteConfig } from "../data/site.config";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: siteConfig.businessName,
+  description: siteConfig.seo.description,
+  image: new URL(siteConfig.seo.ogImage, siteConfig.canonicalUrl).toString(),
+  url: siteConfig.canonicalUrl,
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  address: siteConfig.address,
+  areaServed: [siteConfig.mainCity, ...siteConfig.serviceAreas],
+  priceRange: "$$"
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.businessName,
+  url: siteConfig.canonicalUrl,
+  sameAs: [siteConfig.instagram]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.businessName,
+  url: siteConfig.canonicalUrl
+};
+---
+
+<BaseLayout schema={[localBusinessSchema, organizationSchema, websiteSchema]}>
+  <TopBar />
+  <Header />
+  <main>
+    <Hero />
+    <ServicesSection />
+    <AboutSection />
+    <GallerySection />
+    <DifferentialsSection />
+    <TestimonialsSection />
+    <BlogSection />
+    <LocationSection />
+    <PopularServicesSection />
+  </main>
+  <Footer />
+</BaseLayout>

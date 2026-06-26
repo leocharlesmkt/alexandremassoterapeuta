@@ -1,0 +1,40 @@
+---
+import { siteConfig } from "../data/site.config";
+
+type Props = {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  type?: "website" | "article";
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+};
+
+const {
+  title = siteConfig.seo.title,
+  description = siteConfig.seo.description,
+  canonical = siteConfig.canonicalUrl,
+  image = siteConfig.seo.ogImage,
+  type = "website",
+  schema = []
+} = Astro.props;
+
+const absoluteImage = image.startsWith("http") ? image : new URL(image, siteConfig.canonicalUrl).toString();
+const schemas = Array.isArray(schema) ? schema : [schema];
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={siteConfig.seo.robots} />
+<link rel="canonical" href={canonical} />
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={absoluteImage} />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteImage} />
+{schemas.map((item) => <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />)}

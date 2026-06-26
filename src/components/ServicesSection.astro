@@ -1,0 +1,33 @@
+---
+import { services } from "../data/services";
+---
+
+<section class="section section-soft" id="servicos">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Atendimentos</p>
+      <h2>Qual atendimento você está procurando?</h2>
+      <p>
+        Conheça as opções de massagem realizadas em um ambiente reservado no Cambuí. Escolha a que mais combina com o seu momento e agende pelo WhatsApp.
+      </p>
+    </div>
+    <div class="service-grid">
+      {services.map((service) => (
+        <article class="service-card">
+          <div class="service-body">
+            <div class="service-title-row">
+              <span class="icon-pill" aria-hidden="true">+</span>
+              <h3>{service.localTitle}</h3>
+              <a class="card-arrow" href={service.href} aria-label={`Saiba mais sobre ${service.localTitle}`}>↗</a>
+            </div>
+            <p>{service.text}</p>
+          </div>
+          <img src={service.image} width="900" height="700" alt={`Imagem modelo de ${service.localTitle}`} loading="lazy" decoding="async" />
+        </article>
+      ))}
+    </div>
+    <div class="center-action">
+      <a class="btn btn-gold" href="/servicos/">Saiba mais sobre cada massagem</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+---
+import "../styles/global.css";
+import SEO from "../components/SEO.astro";
+import { siteConfig } from "../data/site.config";
+
+type Props = {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  type?: "website" | "article";
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+};
+
+const props = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content={siteConfig.colors.ink} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <SEO {...props} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

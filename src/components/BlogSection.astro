@@ -1,0 +1,29 @@
+---
+import { blogPosts } from "../data/blog";
+---
+
+<section class="section section-soft blog-section" id="blog">
+  <div class="container">
+    <div class="section-heading section-heading-center">
+      <p class="eyebrow">Blog</p>
+      <h2>Conteúdos sobre massagem tântrica em Campinas</h2>
+      <p>Informações para homens que procuram massagem tântrica, Nuru Mix Relaxante e atendimento discreto no Cambuí.</p>
+    </div>
+    <div class="blog-grid">
+      {blogPosts.map((post) => (
+        <article class="blog-card home-blog-card">
+          <img src={post.image} width="1200" height="675" alt={`Capa do artigo ${post.title}`} loading="lazy" decoding="async" />
+          <div>
+            <p class="blog-meta">{new Date(post.date).toLocaleDateString("pt-BR")} / {post.category}</p>
+            <h3>{post.title}</h3>
+            <p>{post.description}</p>
+            <a href={`/blog/${post.slug}/`}>Leia mais &gt;&gt;</a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="center-action">
+      <a class="btn btn-gold" href="/blog/">Ver todos os conteúdos</a>
+    </div>
+  </div>
+</section>

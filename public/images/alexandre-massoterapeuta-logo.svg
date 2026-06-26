@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 72" role="img" aria-labelledby="title desc">
+  <title id="title">Alexandre Massoterapeuta</title>
+  <desc id="desc">Logotipo de Alexandre Massoterapeuta</desc>
+  <g fill="none" stroke="#d8b06a" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M37 8c14.5 0 26 11.7 26 26.2S51.5 60.4 37 60.4 11 48.7 11 34.2" stroke-width="1.5"/>
+    <path d="M11 31.2C12.6 17.8 23.6 8 37 8" stroke-width="3"/>
+    <path d="m21.5 48.5 15.4-29 15.4 29M27.2 37.7h19.3" stroke-width="2.8"/>
+  </g>
+  <text x="82" y="34" fill="#f6eddf" font-family="Georgia, 'Times New Roman', serif" font-size="26" letter-spacing="1.55">ALEXANDRE</text>
+  <text x="84" y="56" fill="#d8b06a" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.25">MASSOTERAPEUTA</text>
+</svg>

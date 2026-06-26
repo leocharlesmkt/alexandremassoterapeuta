@@ -1,0 +1,12 @@
+---
+import { popularServices } from "../data/popularServices";
+---
+
+<section class="popular-section" aria-labelledby="popular-title">
+  <div class="container popular-inner">
+    <h2 id="popular-title">Massagens para homens no Cambuí e em Campinas:</h2>
+    <div class="popular-links">
+      {popularServices.map((service) => <a href={service.href}><span aria-hidden="true">✓</span>{service.label}</a>)}
+    </div>
+  </div>
+</section>
