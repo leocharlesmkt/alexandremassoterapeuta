@@ -6,13 +6,18 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "12",
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.10.1",
     "typescript": "^5.8.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "wrangler": "^4.105.0"
+  }
 }
