@@ -1,5 +1,11 @@
 ---
 import { services } from "../data/services";
+
+const serviceImageVariants = new Map([
+  ["/images/servico-massagem-relaxante.webp", "/images/servico-massagem-relaxante-360.webp 360w, /images/servico-massagem-relaxante-520.webp 520w, /images/servico-massagem-relaxante.webp 515w"],
+  ["/images/servico-nuru-mix.webp", "/images/servico-nuru-mix-360.webp 360w, /images/servico-nuru-mix-520.webp 520w, /images/servico-nuru-mix.webp 582w"],
+  ["/images/servico-tantrica-mutua.webp", "/images/servico-tantrica-mutua-360.webp 360w, /images/servico-tantrica-mutua-520.webp 520w, /images/servico-tantrica-mutua.webp 592w"]
+]);
 ---
 
 <section class="section section-soft" id="servicos">
@@ -22,7 +28,16 @@ import { services } from "../data/services";
             </div>
             <p>{service.text}</p>
           </div>
-          <img src={service.image} width="900" height="700" alt={`Imagem modelo de ${service.localTitle}`} loading="lazy" decoding="async" />
+          <img
+            src={service.image}
+            srcset={serviceImageVariants.get(service.image)}
+            sizes="(max-width: 719px) 92vw, (max-width: 1099px) 44vw, 341px"
+            width="900"
+            height="700"
+            alt={`Imagem modelo de ${service.localTitle}`}
+            loading="lazy"
+            decoding="async"
+          />
         </article>
       ))}
     </div>

@@ -2,23 +2,23 @@
 const whatsappUrl = "https://wa.me/5519999803939?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20atendimento.";
 
 const photos = [
-  ["Atendimento de massagem de Alexandre", "/images/alexandre-galeria-atendimento.webp", "/images/alexandre-galeria-atendimento-2x.webp"],
-  ["Sala de atendimento com tatame e iluminação discreta", "/images/alexandre-ambiente-tatame-ia-2.webp", "/images/alexandre-ambiente-tatame-ia-2-2x.webp"],
-  ["Alexandre no espaço de atendimento", "/images/alexandre-galeria-espaco-1.webp", "/images/alexandre-galeria-espaco-1-2x.webp"],
-  ["Banheira e espaço de banho do ambiente", "/images/alexandre-ambiente-banheira-ia.webp", "/images/alexandre-ambiente-banheira-ia-2x.webp"],
-  ["Alexandre Massoterapeuta em ambiente reservado", "/images/alexandre-galeria-retrato-noturno.webp", "/images/alexandre-galeria-retrato-noturno-2x.webp"],
-  ["Alexandre no espaço de atendimento em Campinas", "/images/alexandre-galeria-espaco-2.webp", "/images/alexandre-galeria-espaco-2-2x.webp"],
-  ["Alexandre Massoterapeuta no ambiente de atendimento", "/images/alexandre-galeria-espaco-3.webp", "/images/alexandre-galeria-espaco-3-2x.webp"]
+  ["Atendimento de massagem de Alexandre", "/images/alexandre-galeria-atendimento.webp", "/images/alexandre-galeria-atendimento-480.webp 480w, /images/alexandre-galeria-atendimento.webp 564w, /images/alexandre-galeria-atendimento-800.webp 800w"],
+  ["Sala de atendimento com tatame e iluminacao discreta", "/images/alexandre-ambiente-tatame-ia-2.webp", "/images/alexandre-ambiente-tatame-ia-2-480.webp 480w, /images/alexandre-ambiente-tatame-ia-2-800.webp 800w"],
+  ["Alexandre no espaco de atendimento", "/images/alexandre-galeria-espaco-1.webp", "/images/alexandre-galeria-espaco-1-480.webp 480w, /images/alexandre-galeria-espaco-1-800.webp 800w"],
+  ["Banheira e espaco de banho do ambiente", "/images/alexandre-ambiente-banheira-ia.webp", "/images/alexandre-ambiente-banheira-ia-480.webp 480w, /images/alexandre-ambiente-banheira-ia-800.webp 800w"],
+  ["Alexandre Massoterapeuta em ambiente reservado", "/images/alexandre-galeria-retrato-noturno.webp", "/images/alexandre-galeria-retrato-noturno-480.webp 480w, /images/alexandre-galeria-retrato-noturno-800.webp 800w"],
+  ["Alexandre no espaco de atendimento em Campinas", "/images/alexandre-galeria-espaco-2.webp", "/images/alexandre-galeria-espaco-2-480.webp 480w, /images/alexandre-galeria-espaco-2-800.webp 800w"],
+  ["Alexandre Massoterapeuta no ambiente de atendimento", "/images/alexandre-galeria-espaco-3.webp", "/images/alexandre-galeria-espaco-3-480.webp 480w, /images/alexandre-galeria-espaco-3-800.webp 800w"]
 ];
 ---
 
 <section class="gallery-section" aria-labelledby="galeria-title">
   <h2 id="galeria-title" class="sr-only">Galeria de Alexandre Massoterapeuta</h2>
   <div class="gallery-grid">
-    {photos.map(([label, src, src2x]) => (
+    {photos.map(([label, src, srcset]) => (
       <figure>
         <a href={src} class="gallery-link" aria-label={`Abrir foto: ${label}`} data-lightbox>
-          <img src={src} srcset={`${src} 1x, ${src2x} 2x`} width="564" height="720" alt={label} loading="lazy" decoding="async" />
+          <img src={src} srcset={srcset} sizes="(max-width: 719px) 82vw, 394px" width="564" height="720" alt={label} loading="lazy" decoding="async" />
         </a>
       </figure>
     ))}

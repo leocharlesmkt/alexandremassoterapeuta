@@ -89,41 +89,22 @@ const phoneDisplay = phoneDigits.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
     .filter((section): section is HTMLElement => Boolean(section));
 
   if (sections.length) {
-    let ticking = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-    const updateActiveSection = () => {
-      const headerHeight = document.querySelector("[data-header]")?.getBoundingClientRect().height ?? 0;
-      const referencePoint = window.scrollY + headerHeight + Math.min(window.innerHeight * 0.28, 220);
-      const atPageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-
-      let activeSection = sections[0];
-
-      if (atPageBottom) {
-        activeSection = sections[sections.length - 1];
-      } else {
-        sections.forEach((section) => {
-          if (section.offsetTop <= referencePoint) {
-            activeSection = section;
-          }
-        });
+        if (visible?.target.id) {
+          setActive(visible.target.id);
+        }
+      },
+      {
+        rootMargin: "-24% 0px -58% 0px",
+        threshold: [0.12, 0.24, 0.36]
       }
+    );
 
-      if (activeSection?.id) {
-        setActive(activeSection.id);
-      }
-
-      ticking = false;
-    };
-
-    const requestUpdate = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateActiveSection);
-        ticking = true;
-      }
-    };
-
-    updateActiveSection();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
+    sections.forEach((section) => observer.observe(section));
   }
 </script>

@@ -24,7 +24,7 @@ export const siteConfig = {
   serviceType: "massagens para homens",
   differentials: ["privacidade desde a chegada", "ambiente climatizado", "atendimento individual"],
   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Cambu%C3%AD%20Campinas%20SP",
-  canonicalUrl: "https://www.seusite.com.br",
+  canonicalUrl: "https://alexandremassoterapeuta.pages.dev",
   heroImage: "/images/alexandre-massoterapeuta-hero.webp",
   colors: {
     ink: "#222838",

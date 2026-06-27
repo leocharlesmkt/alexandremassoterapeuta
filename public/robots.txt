@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.seusite.com.br/sitemap-index.xml
+Sitemap: https://alexandremassoterapeuta.pages.dev/sitemap-index.xml
